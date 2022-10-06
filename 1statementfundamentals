@@ -1,0 +1,46 @@
+/* find first name, last name, email address for all customers */
+
+SELECT first_name, last_name, email FROM customer;
+
+
+/* what ratings do we have avilable */
+
+SELECT DISTINCT rating FROM film;
+
+
+/* what is the email of the customer Nancy Thomas */
+
+SELECT email FROM customer 
+WHERE first_name = 'Nancy' AND last_name = 'Thomas';
+
+
+/* find the description for the movie "Outlaw Hanky" */
+
+SELECT description FROM film 
+WHERE title = 'Outlaw Hanky';
+
+
+/* find the phone number for the customer who lives at '259 Ipoh Drive' */
+
+SELECT phone FROM address 
+WHERE address = '259 Ipoh Drive';
+
+
+/* what are the customer ids of the first 10 customers who created a payment */
+
+SELECT customer_id FROM payment
+ORDER BY payment_date
+LIMIT 10;
+
+
+/* what are the titles of the 5 shortest (in length of runtime) movies */
+
+SELECT title FROM film 
+ORDER BY length
+LIMIT 5;
+
+
+/*how many movies are 50 minutes or less in run time*/
+
+SELECT COUNT(title) FROM film
+WHERE length <= 50;
